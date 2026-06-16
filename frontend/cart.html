@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Cart - ShopEasy</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">🛒 ShopEasy</div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="products.html">Products</a>
+      <a href="cart.html">Cart <span id="cart-count" class="badge">0</span></a>
+      <a href="login.html" id="login-link">Login</a>
+      <a href="#" id="logout-link" style="display:none" onclick="logout()">Logout</a>
+    </div>
+  </nav>
+
+  <div class="cart-container">
+    <h1>Your Cart 🛒</h1>
+    <div id="cart-items"></div>
+    <div class="cart-summary" id="cart-summary"></div>
+  </div>
+
+  <script src="app.js"></script>
+  <script>loadCart();</script>
+</body>
+</html>

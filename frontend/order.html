@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Place Order - ShopEasy</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">🛒 ShopEasy</div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="products.html">Products</a>
+      <a href="cart.html">Cart</a>
+    </div>
+  </nav>
+
+  <div class="auth-container">
+    <div class="auth-box">
+      <h2>Shipping Details 📦</h2>
+      <div id="error-msg" class="error-msg"></div>
+      <input type="text" id="address" placeholder="Street Address" />
+      <input type="text" id="city" placeholder="City" />
+      <input type="text" id="postalCode" placeholder="Postal Code" />
+      <div id="order-summary"></div>
+      <button class="btn" onclick="placeOrder()">Place Order ✅</button>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+  <script>showOrderSummary();</script>
+</body>
+</html>

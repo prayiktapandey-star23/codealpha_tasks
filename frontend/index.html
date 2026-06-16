@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ShopEasy - Home</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="logo">🛒 ShopEasy</div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="products.html">Products</a>
+      <a href="cart.html">Cart <span id="cart-count" class="badge">0</span></a>
+      <a href="login.html" id="login-link">Login</a>
+      <a href="#" id="logout-link" style="display:none" onclick="logout()">Logout</a>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="hero-tag">🔥 New Arrivals Every Week</p>
+      <h1>Shop Smarter,<br/>Live Better</h1>
+      <p>Discover amazing products at unbeatable prices</p>
+      <div class="hero-btns">
+        <a href="products.html" class="btn">Shop Now →</a>
+        <a href="register.html" class="btn btn-outline">Join Free</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><strong>500+</strong><span>Products</span></div>
+        <div class="stat"><strong>10K+</strong><span>Customers</span></div>
+        <div class="stat"><strong>4.9★</strong><span>Rating</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CATEGORIES -->
+  <section class="categories">
+    <h2>Shop by Category</h2>
+    <div class="category-grid">
+      <div class="category-card" onclick="window.location.href='products.html'">
+        <span>📱</span><p>Electronics</p>
+      </div>
+      <div class="category-card" onclick="window.location.href='products.html'">
+        <span>👟</span><p>Footwear</p>
+      </div>
+      <div class="category-card" onclick="window.location.href='products.html'">
+        <span>🎒</span><p>Bags</p>
+      </div>
+      <div class="category-card" onclick="window.location.href='products.html'">
+        <span>🕶️</span><p>Accessories</p>
+      </div>
+      <div class="category-card" onclick="window.location.href='products.html'">
+        <span>🏋️</span><p>Fitness</p>
+      </div>
+      <div class="category-card" onclick="window.location.href='products.html'">
+        <span>☕</span><p>Kitchen</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED SECTION -->
+  <section class="featured">
+    <div class="section-header">
+      <h2>Featured Products</h2>
+      <a href="products.html" class="view-all">View All →</a>
+    </div>
+    <div class="products-grid" id="featured-products"></div>
+  </section>
+
+  <!-- BANNER -->
+  <section class="promo-banner">
+    <div class="promo-content">
+      <h2>🎉 Special Offer!</h2>
+      <p>Get free shipping on orders above ₹999</p>
+      <a href="products.html" class="btn">Grab the Deal</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-brand">
+        <h3>🛒 ShopEasy</h3>
+        <p>Your one-stop shop for everything</p>
+      </div>
+      <div class="footer-links">
+        <a href="products.html">Products</a>
+        <a href="cart.html">Cart</a>
+        <a href="login.html">Login</a>
+        <a href="register.html">Register</a>
+      </div>
+    </div>
+    <p class="footer-copy">© 2024 ShopEasy. Built with ❤️ by CodeAlpha Intern</p>
+  </footer>
+
+  <script src="app.js"></script>
+  <script>loadFeaturedProducts();</script>
+</body>
+</html>

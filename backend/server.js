@@ -8,11 +8,10 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
-app.use(express.static('C:\\Users\\Admin\\Desktop\\webdev\\ecommerce-store\\ecommerce-store\\frontend'));
+app.use(express.static(path.join(__dirname, '../frontend')));
 
 app.get('/', (req, res) => {
-  res.sendFile('C:\\Users\\Admin\\Desktop\\webdev\\ecommerce-store\\ecommerce-store\\frontend\\index.html');
-});
+res.sendFile(path.join(__dirname, '../frontend/index.html'));
 
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/products', require('./routes/products'));

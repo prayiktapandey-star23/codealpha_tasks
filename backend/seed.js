@@ -3,7 +3,7 @@ const products = [
     name: 'Wireless Headphones',
     description: 'Premium sound quality with noise cancellation and 30hr battery life',
     price: 2999,
-    image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500',
+    image: 'https://picsum.photos/seed/headphones/400/300',
     category: 'Electronics',
     stock: 15
   },
@@ -11,7 +11,7 @@ const products = [
     name: 'Running Shoes',
     description: 'Lightweight and comfortable shoes perfect for daily running',
     price: 1999,
-    image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500',
+    image: 'https://picsum.photos/seed/shoes/400/300',
     category: 'Footwear',
     stock: 20
   },
@@ -19,7 +19,7 @@ const products = [
     name: 'Smart Watch',
     description: 'Track fitness, notifications and more with this stylish smartwatch',
     price: 4999,
-    image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500',
+    image: 'https://picsum.photos/seed/watch/400/300',
     category: 'Electronics',
     stock: 10
   },
@@ -27,7 +27,7 @@ const products = [
     name: 'Backpack',
     description: 'Durable 30L backpack with laptop compartment, perfect for travel',
     price: 1499,
-    image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=500',
+    image: 'https://picsum.photos/seed/backpack/400/300',
     category: 'Bags',
     stock: 25
   },
@@ -35,32 +35,51 @@ const products = [
     name: 'Sunglasses',
     description: 'UV400 protection polarized sunglasses with stylish frame',
     price: 899,
-    image: 'https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=500',
+    image: 'https://picsum.photos/seed/sunglasses/400/300',
     category: 'Accessories',
     stock: 30
-  },
-  {
-    name: 'Laptop Stand',
-    description: 'Adjustable aluminum laptop stand for better posture and airflow',
-    price: 1299,
-    image: 'https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=500',
-    category: 'Electronics',
-    stock: 18
   },
   {
     name: 'Coffee Mug',
     description: 'Insulated stainless steel mug keeps drinks hot for 12 hours',
     price: 499,
-    image: 'https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?w=500',
+    image: 'https://picsum.photos/seed/mug/400/300',
     category: 'Kitchen',
     stock: 50
   },
   {
-    name: 'Yoga Mat',
-    description: 'Non-slip eco-friendly yoga mat with carry strap, 6mm thickness',
-    price: 799,
-    image: 'https://images.unsplash.com/photo-1601925228008-f43d6a5fd1f8?w=500',
+    name: 'Gaming Keyboard',
+    description: 'Mechanical gaming keyboard with RGB lighting',
+    price: 2499,
+    image: 'https://picsum.photos/seed/keyboard/400/300',
+    category: 'Electronics',
+    stock: 15
+  },
+  {
+    name: 'Water Bottle',
+    description: 'Insulated stainless steel water bottle 1L',
+    price: 599,
+    image: 'https://picsum.photos/seed/bottle/400/300',
     category: 'Fitness',
-    stock: 22
+    stock: 40
   }
 ];
+module.exports = { products };
+
+const mongoose = require('mongoose');
+const Product = require('./models/Product');
+require('dotenv').config();
+
+mongoose.connect(process.env.MONGO_URI)
+  .then(async () => {
+    console.log('MongoDB Connected');
+    await Product.deleteMany({});
+    await Product.insertMany(products);
+    console.log('Products seeded successfully!');
+    process.exit();
+  })
+  .catch(err => {
+    console.log('Error:', err);
+    process.exit(1);
+  });
+  

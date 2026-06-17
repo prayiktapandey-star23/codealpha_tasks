@@ -1,4 +1,4 @@
-const API = 'http://localhost:5000/api';
+const API = 'https://shopeasy-backend-0tar.onrender.com/api';
 
 const DUMMY_PRODUCTS = [
   { _id: '1', name: 'Wireless Headphones', description: 'Premium sound quality with noise cancellation and 30hr battery life', price: 2999, image: 'https://cdn.pixabay.com/photo/2018/09/17/14/27/headphones-3683983_640.jpg', category: 'Electronics' },

@@ -19,7 +19,16 @@ app.use('/api/orders', require('./routes/orders'));
 app.use('/api/cart', require('./routes/cart'));
 
 mongoose.connect(process.env.MONGO_URI)
-  .then(() => console.log('MongoDB Connected ✅'))
+  .then(async () => {
+    console.log('MongoDB Connected ✅');
+    const Product = require('./models/Product');
+    const count = await Product.countDocuments();
+    if (count === 0) {
+      const { products } = require('./seed');
+      await Product.insertMany(products);
+      console.log('DB seeded!');
+    }
+  })
   .catch(err => console.log('DB Error:', err));
 
 const PORT = process.env.PORT || 5000;

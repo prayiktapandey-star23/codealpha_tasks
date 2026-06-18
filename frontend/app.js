@@ -104,7 +104,7 @@ function renderProducts(products, container) {
     return;
   }
   container.innerHTML = products.map(p => `
-    <div class="product-card">
+    <div class="product-card" onclick="window.location.href='product-detail.html?id=${p._id}'" style="cursor:pointer">
       <img src="${p.image}" alt="${p.name}" onerror="this.src='https://via.placeholder.com/300x200?text=Product'"/>
       <div class="product-info">
         <span class="category">${p.category}</span>
